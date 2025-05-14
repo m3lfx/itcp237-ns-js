@@ -8,6 +8,7 @@ function setEven() {
 function setOdd() {
     // $('li, span').css('font-weight', '');
     var $oddItems = $('li:odd');
+    console.log($oddItems)
     $oddItems.css('font-weight', 'bold');
     $('span:contains(Odd)').css('font-weight', 'bold');
     $('.label').html('Odd');

@@ -209,3 +209,13 @@ var santa = {
     }
 }
 santa.say();
+
+const array1 = ["a", "b", "c"];
+
+array1.forEach((element) => console.log(element));
+
+const array2 = [1, 4, 9, 16];
+
+// Pass a function to map
+const map1 = array2.map((x) => x * 2);
+console.log(map1)
