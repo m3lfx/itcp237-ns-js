@@ -64,7 +64,7 @@
 //     if (name === undefined) {
 //         name = "joEY"
 //     }
-    
+
 //     name = name && "John";
 //     console.log(name);
 //     console.log("Hello " + name);
@@ -115,8 +115,8 @@ const obj = {
     phone: {
         phone1: "9999",
         phone2: "8888",
-        },
-    zip: function zip(){
+    },
+    zip: function zip() {
         return '1456'
     }
 }
@@ -138,25 +138,25 @@ for (var [key, value] of founders) {
     console.log(key + " founded by " + value);
 
     var author = {
-    firstname: "Douglas",
-    lastname: "Crockford",
-    book: {
-        title: "JavaScript- The Good Parts",
-        pages: "172"
-    }
-};
-console.log(author['firstname']); //Douglas
-console.log(author.lastname); //Crockford
-console.log(author.book.title);
+        firstname: "Douglas",
+        lastname: "Crockford",
+        book: {
+            title: "JavaScript- The Good Parts",
+            pages: "172"
+        }
+    };
+    console.log(author['firstname']); //Douglas
+    console.log(author.lastname); //Crockford
+    console.log(author.book.title);
 
-var mySet = new Set();
-mySet.add(1);
-mySet.add("Howdy");
-mySet.add("foo");
-console.log(mySet.has(1)); // true
-mySet.delete("foo");
-console.log(mySet.size); // 2
-for (let item of mySet) console.log(item);
+    var mySet = new Set();
+    mySet.add(1);
+    mySet.add("Howdy");
+    mySet.add("foo");
+    console.log(mySet.has(1)); // true
+    mySet.delete("foo");
+    console.log(mySet.size); // 2
+    for (let item of mySet) console.log(item);
 }
 
 function changeCase(val) {
@@ -167,7 +167,7 @@ function demofunc(a, passfunction) {
 }
 demofunc("smallcase", changeCase);
 
-var validateDataForAge = function (data) {
+var validateDataForAge = data => {
     person = data();
     console.log(person.age);
     if (person.age < 1 || person.age > 99) {
@@ -176,30 +176,36 @@ var validateDataForAge = function (data) {
         return false;
     }
 };
-var errorHandlerForAge = function (error) {
-    console.log("Error while processing age");
-};
+var errorHandlerForAge = error => console.log(error);
+
 function parseRequest(data, validateData, errorHandler) {
     var error = validateData(data);
     if (!error) {
         console.log("no errors");
     } else {
-        errorHandler();
+        errorHandler('error input age');
     }
 }
-var generateDataForScientist = function () {
+var generateDataForScientist = () => {
     return {
         name: "Albert Einstein",
         age: Math.floor(Math.random() * (100 - 1)) + 1,
     };
 };
-var generateDataForComposer = function () {
+var generateDataForComposer = () => {
     return {
         name: "J S Bach",
-        age: Math.floor(Math.random() * (100 - 1)) + 1,
+        age: 101,
     };
 };
 parseRequest(generateDataForScientist, validateDataForAge,
     errorHandlerForAge);
 parseRequest(generateDataForComposer, validateDataForAge,
     errorHandlerForAge);
+
+var santa = {
+    say: function () {
+        console.log("ho ho ho");
+    }
+}
+santa.say();
